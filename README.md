@@ -1,4 +1,5 @@
 # README
+:)
 
 De super coole website
 Versie 1
