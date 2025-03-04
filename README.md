@@ -1,8 +1,10 @@
 # README
-:)
+
 
 De super coole website
+
 Versie 1
+
 26-02-2025
 
 Een website die willekeurige (zelfgemaakte of gedownload) DNA codons kan omzetten in
