@@ -1,0 +1,19 @@
+/* style.css */
+
+.About_us_button {
+    font-size: 18px;  /* Vergroot de tekst */
+    padding: 20px 40px;  /* Vergroot de knop door meer ruimte binnenin */
+    background-color: lightgreen;  /* Geeft de knop een lichtgroene kleur */
+    border: none;  /* Verwijdert de rand van de knop */
+    border-radius: 8px;  /* Maakt de hoeken van de knop afgerond */
+    cursor: pointer;  /* Verandert de muis naar een handje */
+}
+
+.Chimera_button {
+    font-size: 18px;  /* Vergroot de tekst */
+    padding: 20px 40px;  /* Vergroot de knop door meer ruimte binnenin */
+    background-color: lightgreen;  /* Geeft de knop een lichtgroene kleur */
+    border: none;  /* Verwijdert de rand van de knop */
+    border-radius: 8px;  /* Maakt de hoeken van de knop afgerond */
+    cursor: pointer;  /* Verandert de muis naar een handje */
+}
