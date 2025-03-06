@@ -1,16 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Website</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Coole Website</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0; }
+
+        header {
+            background-color: #05a1af;
+            padding: 20px;
+            text-align: center;
+            font-size: 35px;
+            color: #ffffff; }
+
+
+        nav {
+            float: left;
+            width: 30%;
+            height: 500px;
+            background: #dcfdf3;
+            padding: 20px; }
+
+
+        nav a {
+            display: block;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fbfbfb;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #05a1af;
+            text-align: center; }
+
+        nav a:hover {
+            background-color: #38f838; }
+
+        article {
+            float: left;
+            padding: 20px;
+            width: 70%;
+            background-color: #ffffff;
+            height: 300px; }
+
+        /* Responsieve layout */
+        @media (max-width: 600px) {
+            nav, article {
+                width: 100%;
+                height: auto; }}
+    </style>
 </head>
 <body>
-    <h1 style="background-color:#ff00a7;">Super Coole Website 
-    <img src="logo-hanze-oranje-zwart-rgb.png" alt="hanze logo" style="width:110px;height:50px;"></h1>
-    <br>
-    <a href="ABOUT_US.html"><button class="About_us_button">About us</button></a>
-    <br>
-    <br>
-    <a href="CHIMERA.html"><button class = "Chimera_button">Chimera UCSF</button></a>
-</body>
-</html>
+
+<header>
+    <h1>Super Coole Website <img src="logo-hanze-oranje-zwart-rgb.png" alt="Hanze Logo"
+                                 height=50 width=120> </h1>
+</header>
+
+<section>
+    <nav>
+        <a href="ABOUT_US.html">About us</a>
+        <a href="CHIMERA.html">Chimera UCSF</a>
+    </nav>
+
+
+    <article>
+        <p> Welkom bij onze website voor het vertalen en informeren van eiwitten. vul bovenin
+            een DNA, RNA, nucleotide,aminozuur sequentie in of een eiwit en laat je informeren!
