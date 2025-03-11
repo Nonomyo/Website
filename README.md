@@ -6,20 +6,15 @@ De super coole website
 Versie 1
 
 26-02-2025
-
-Een website die willekeurige (zelfgemaakte of gedownload) DNA codons kan omzetten in
-aminozuren en een visueel beeld kan maken van dit eiwit. En andersom.
-Het is de bedoeling dat je deze aminozuren kan aanpassen toevoegen en verwijderen.
+We gaan de Chimera tool gebruiken. En deze gaan we gebruiken in onze website. 
+De website gaat willekeurige (zelfgemaakte of gedownload) DNA codons omzetten in
+aminozuren een 3D visualisatie kan maken van dit eiwit.
+Het is de bedoeling dat je mutaties kan aanpassen of toevoegen.
 Ook moet deze (mogelijk) het frameshift kunnen veranderen en de start en stop kunnen aanwijzen.
-Verder zou je mogelijkemutaties kunnen toevoegen. En met restrictie enzymen kunnen werken.
+Verder zou je mogelijke mutaties kunnen toevoegen. En met restrictie enzymen kunnen werken.
 
-pycharm, .......
 Hoe moet je dit programma installeren?
 
-Windows
-Link: https://www.cgl.ucsf.edu/chimerax/
-klik download en download de laatste versie voor windows.
-als het progamma gedownload is openen en de stappen voltooien
 
 # Linux
 Maak via de terminal in Linux een nieuw mapje aan, waar je de tool in gaat opslaan. Dit doe je door: mkdir /homes/”jouwnaam”/”locatie”/”mapnaam”
