@@ -14,13 +14,13 @@ Hierbij wordt gebruik gemaakt van **BioPython**,**BLAST** en **UCSF ChimeraX**.
   
 Onderstaand is een voorbeeld weergegeven van de data over een sequentie die BioPython en BLAST terug kunnen geven.  
   
-<img src="biopython_voorbeeld.png" alt="biopython en blast output" width="500" height="250">
+<img src="static/biopython_voorbeeld.png" alt="biopython en blast output" width="500" height="250">
   
 Dit eiwit kan vervolgens door middel van **UCSF ChimeraX** worden gevisualiseerd in een 3D-weergave van de tertiaire- en mogelijk de  quarternaire structuur (afhankelijk van de hoeveelheid eiwitten).  
   
 Dit is een voorbeeld van een mogelijke visualisatie:  
   
-<img src="chimera_voorbeeld.png" alt="chimera output" width="500" height="250">
+<img src="static/chimera_voorbeeld.png" alt="chimera output" width="500" height="250">
   
 Aangezien een interactieve werking lastig is om goed te laten werken op de website,  
 proberen wij een animatie weer te geven van het eiwit, zodat alle eigenschappen van het eiwit zichtbaar zijn.  
