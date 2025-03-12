@@ -7,19 +7,20 @@ Versie 2
 Een website die willekeurige opgegeven DNA codons van de gebruiker kan omzetten in een
 aminozuursequentie, die vervolgens weer kan worden gekoppeld aan het bijpassende eiwit.
   
-Hierbij wordt gebruik gemaakt van **BioPython** en **BLAST**.  
+Hierbij wordt gebruik gemaakt van **BioPython**,**BLAST** en **UCSF ChimeraX**.  
 **Biopython** is een verzameling van beschikbare Python modules voor computationele moleculaire biologie.  
-**BLAST** staat voor Basic Local Alignment Search Tool. Het vindt regio's van gelijkenis tussen biologische sequenties.
+**BLAST** staat voor Basic Local Alignment Search Tool. Het vindt regio's van gelijkenis tussen biologische sequenties.  
+**UCSF Chimera** is een programma voor de interactieve visualisatie en analyse van moleculaire structuren en gerelateerde gegevens.  
+  
 Onderstaand is een voorbeeld weergegeven van de data over een sequentie die BioPython en BLAST terug kunnen geven.  
   
-![alt text](biopython_voorbeeld.png)
+<img src="biopython_voorbeeld.png" alt="biopython en blast output" width="500" height="250">
   
 Dit eiwit kan vervolgens door middel van **UCSF ChimeraX** worden gevisualiseerd in een 3D-weergave van de tertiaire- en mogelijk de  quarternaire structuur (afhankelijk van de hoeveelheid eiwitten).  
-
-**UCSF Chimera** is een programma voor de interactieve visualisatie en analyse van moleculaire structuren en gerelateerde gegevens.  
+  
 Dit is een voorbeeld van een mogelijke visualisatie:  
   
-![alt text](chimera_voorbeeld.png)
+<img src="chimera_voorbeeld.png" alt="chimera output" width="500" height="250">
   
 Aangezien een interactieve werking lastig is om goed te laten werken op de website,  
 proberen wij een animatie weer te geven van het eiwit, zodat alle eigenschappen van het eiwit zichtbaar zijn.  
@@ -55,39 +56,31 @@ Deze link download het installatieprogramma van de nieuwste versie van ChimeraX 
 Klik vervolgens op “Accept” onderaan het scherm, de tool begint nu met downloaden.
   
 Volg nu de volgende stappen in de terminal om naar de "Downloads" folder te gaan:  
-Om terug te gaan naar "homes" folder: `cd ~`
-Om naar de "Downloads" folder te gaan: `cd Downloads`
-Check door middel van de volgende input of het installatieprogramma in de map staat: `ls`
+Om terug te gaan naar "homes" folder: `cd ~`  
+Om naar de "Downloads" folder te gaan: `cd Downloads`  
+Check door middel van de volgende input of het installatieprogramma "chimera-1.19-linux_x86_64.bin" in de map staat: `ls`  
+    
+Nu moet je jezelf toegang geven aan de tool, dit doe je door dit in de terminal te zetten:  
+`chmod +x chimera-1.19-linux_x86_64.bin`  
+    
+Met `ls –l` zie je nu dat "chimera-1.18-linux_x86_64.bin" groen is geworden.  
+    
+Voer nu `chimera-1.19-linux_x86_64.bin` in in de terminal, nu begint de tool te downloaden.  
   
-Nu moet je jezelf toegang geven aan de tool, dit doe je door dit in de terminal te zetten:
-`chmod +x chimera-1.18-linux_x86_64.bin`
+De terminal geeft vervolgens "Enter install location" weer.  
+Er wordt dan automatisch ingevuld dat ChimeraX in de "Downloads" folder wordt gedownload.  
+Verwijder deze tekst en vul in de terminal in: `/homes/jouwgebruikersnaam/locatie/mapnaam`  
   
-Met `ls –l` zie je nu dat "chimera-1.18-linux_x86_64.bin" groen is geworden.
+De terminal geeft nu "Install desktop menu and icon?" weer en vult automatisch "yes" in, klik hier op `enter`.  
+Vervolgens geeft het terug: "Install symbolic link to chimera executable for command line use in which directory?".  
+Klik ook hier de `enter` toets in.  
   
-Voer nu `chimera-1.18-linux_x86_64.bin` in in de terminal, nu begint de tool te downloaden.
-
-Tijdens het downloaden moet je verschillende keren op enter klikken. Het kan even
-duren voordat dit proces klaar is. Je kan als je wilt meteen de locatie veranderen waar je
-de tool wilt installeren, bijvoorbeeld naar je "Downloads" folder:
-
-De tool is nu geïnstalleerd in je "Downloads" folder met de naam: "chimera_install_0kntNt",
-om deze te verplaatsen naar de map die je hebt gemaakt voer je dit in de terminal in (zorg ervoor dat je in
-je "Downloads" folder zit): `mv chimera_install_0kntNt /homes/jouwnaam/locatie/mapnaam`
-
-Als je nu met cd naar deze locatie gaat en ls invoert zie je de tool in deze map.
-
-Voer nu dit in in de terminal: `/homes/jouwgebruikersnaam/locatie/mapnaam/chimera_install_0kntNt/chimera.bin installer`
-
-Je moet hier weer een paar keer de y voor yes invullen
-
-Voer nu nog een keer dit uit in de terminal: `/homes/jouwgebruikersnaam/locatie/mapnaam/chimera_install_0kntNt/chimera.bin installer`
-
-Als je nu naar `chimera_install_0kntNt` gaat in de terminal zie je verschillende dingen in het mapje. Cd hier naar bin
-
-Om de tool op te starten voer je nu chimera in de terminal, de tool start nu op
-
-Het hele pad naar de tool is dus:
-`/homes /jouwnaam/locatie/mapnaam/chimera_install_0kntNt/bin/chimera`
+De installatie is hierna klaar en er wordt gevraag om op `return` te klikken.  
+  
+Gebruik nu `cd ~` en daarna `cd locatie/mapnaam` om te checken of ChimeraX erin staat.  
+  
+Het hele pad naar de tool is dus:  
+`/homes /jouwnaam/locatie/mapnaam/bin/chimera`  
 
 ## Contactgegevens
   
