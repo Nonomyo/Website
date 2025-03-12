@@ -1,0 +1,11 @@
+Een website die willekeurige opgegeven DNA codons van de gebruiker kan omzetten in een
+aminozuursequentie, die vervolgens weer kan worden gekoppeld aan het bijpassende eiwit.
+  
+Hierbij wordt gebruik gemaakt van **BioPython**,**BLAST** en **UCSF ChimeraX**.  
+**Biopython** is een verzameling van beschikbare Python modules voor computationele moleculaire biologie.  
+**BLAST** staat voor Basic Local Alignment Search Tool. Het vindt regio's van gelijkenis tussen biologische sequenties.  
+**UCSF Chimera** is een programma voor de interactieve visualisatie en analyse van moleculaire structuren en gerelateerde gegevens.  
+  
+Onderstaand is een voorbeeld weergegeven van de data over een sequentie die BioPython en BLAST terug kunnen geven.  
+  
+<img src="biopython_voorbeeld.png" alt="biopython en blast output" width="500" height="250">
