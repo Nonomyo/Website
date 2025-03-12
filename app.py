@@ -21,6 +21,9 @@ def about_us():
 def help():
     return render_template('HELP.html')
 
+
+
+
 if __name__ == '__main__':
     app.run()
 
