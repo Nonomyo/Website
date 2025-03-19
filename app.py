@@ -7,6 +7,7 @@ Deze code maakt gebruik van flask om een website met een eigen url te laten star
 CCS en Flask een werkende website te maken die een visualisatie kan maken. Onze website werkt met meerdere scripts,
 HTML pagina's, CSS en code die samen werken om een goed werkende webiste te maken.
 """
+
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
