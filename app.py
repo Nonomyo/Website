@@ -62,9 +62,6 @@ def about_us():
     """
     return render_template(template_name_or_list = 'ABOUT_US.html', titel = titels[4])
 
-@app.route('/outputje')
-def outputje():
-    return render_template(template_name_or_list= 'outputje.html', titel = titels[5])
 
 if __name__ == '__main__':
     app.run()
