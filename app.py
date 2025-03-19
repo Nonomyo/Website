@@ -1,11 +1,18 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 titels = ['Super Coole Website', 'UCSF Chimera', 'BLAST', 'Help', 'About Us']
 
-@app.route('/')
+@app.route('/', methods = ['GET', 'POST'])
 def home():
-    return render_template(template_name_or_list = 'HOMEPAGE.html', titel = titels[0])
+    if request.method == 'GET':
+        return render_template(template_name_or_list='HOMEPAGE.html', titel=titels[0])
+    elif request.method == 'POST':
+        kwargs = {
+            'fname' : request.form['fname'],
+        }
+        return render_template('output.html', **kwargs, titel=titels[0])
+
 
 @app.route('/Chimera')
 def chimera():
