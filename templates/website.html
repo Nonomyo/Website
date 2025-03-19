@@ -15,11 +15,11 @@
         </header>
 
         <nav>
-            <a href="http://127.0.0.1:5000/">Home Page</a>
-            <a href="http://127.0.0.1:5000/Chimera">Chimera UCSF</a>
-            <a href="http://127.0.0.1:5000/BLAST">BLAST</a>
-            <a href="http://127.0.0.1:5000/Help">Help</a>
-            <a href="http://127.0.0.1:5000/AboutUs">About Us</a>
+            <a class="nav-link" href="{{url_for('home')}}">Home Page</a>
+            <a class="nav-link" href="{{url_for('chimera')}}">Chimera UCSF</a>
+            <a class="nav-link" href="{{url_for('blast')}}">BLAST</a>
+            <a class="nav-link" href="{{url_for('help')}}">Help</a>
+            <a class="nav-link" href="{{url_for('about_us')}}">About Us</a>
         </nav>
 
         <main>
