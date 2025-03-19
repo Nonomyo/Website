@@ -1,8 +1,17 @@
+"""
+SUPER COOLE WEBSITE
+versie 1
+Bio-informatica leerjaar 1
+Fleur Luten, Isa Bos, Naomy Schuppers, Yde de Vos
+Deze code maakt gebruik van flask om een website met een eigen url te laten starten. De opdracht was om met HTML
+CCS en Flask een werkende website te maken die een visualisatie kan maken. Onze website werkt met meerdere scripts,
+HTML pagina's, CSS en code die samen werken om een goed werkende webiste te maken.
+"""
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # Dit is een lijst met titels voor alle pagina's op de website
-titels = ['Super Coole Website', 'UCSF Chimera', 'BLAST', 'Help', 'About Us']
+titels = ['Super Coole Website', 'UCSF Chimera', 'BLAST', 'Help', 'About Us', 'output']
 
 @app.route('/', methods = ['GET', 'POST'])
 def home():
@@ -52,6 +61,9 @@ def about_us():
     """
     return render_template(template_name_or_list = 'ABOUT_US.html', titel = titels[4])
 
+@app.route('/outputje')
+def outputje():
+    return render_template(template_name_or_list= 'outputje.html', titel = titels[5])
 
 if __name__ == '__main__':
     app.run()
