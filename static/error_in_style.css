@@ -1,0 +1,13 @@
+body{
+    font: italic small-caps bold 16px/2 cursive;
+}
+
+h1 {
+
+    color: blue;
+    border: dashed 10px cyan;
+    text-align: center
+}
+
+
+h2
