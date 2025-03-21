@@ -9,26 +9,30 @@ HTML pagina's, CSS en code die samen werken om een goed werkende webiste te make
 """
 
 from flask import Flask, render_template, request
+
 app = Flask(__name__)
 
 # Dit is een lijst met titels voor alle pagina's op de website
-titels = ['Super Coole Website', 'UCSF Chimera', 'BLAST', 'Help', 'About Us', 'output']
+titels = ['Super Coole Website', 'UCSF Chimera', 'BLAST', 'Help', 'About Us', 'output', 'error']
 
-@app.route('/', methods = ['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def home():
     """
-    In deze functie staan de Home Page en de Output.
-    :return: HOMEPAGE.html of output.html met de titel 'Super Coole Website'
-    """
+      In deze functie staan de Home Page en de Output.
+      :return: HOMEPAGE.html of output.html met de titel 'Super Coole Website'
+      """
     # Tot je iets invoerd zie je de "normale" Home Page.
     if request.method == 'GET':
-        return render_template(template_name_or_list='HOMEPAGE.html', titel=titels[0])
+        return render_template('HOMEPAGE.html', titel=titels[0])
+
     # Wanneer je een sequentie invoerd zie je een nieuwe pagina.
     elif request.method == 'POST':
-        kwargs = {
-            'fname' : request.form['fname'],
-        }
-        return render_template('output.html', **kwargs, titel=titels[0])
+        fname = request.form.get('fname', '')
+
+        if not fname:
+            return render_template('errorpage.html', titel=titels[6])
+        # slaat de fname op en geeft die door aan de output
+        return render_template('output.html', fname=fname, titel=titels[5])
 
 @app.route('/Chimera')
 def chimera():
@@ -69,6 +73,8 @@ def error():
     :return: ERROR.html met de titel 'Error'
     '''
     return render_template(template_name_or_list = 'error.html', titel = 'error')
+
+
 
 
 if __name__ == '__main__':
