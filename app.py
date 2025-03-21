@@ -10,6 +10,7 @@ HTML pagina's, CSS en code die samen werken om een goed werkende webiste te make
 
 from flask import Flask, render_template, request
 
+
 app = Flask(__name__)
 
 # Dit is een lijst met titels voor alle pagina's op de website
