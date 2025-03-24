@@ -16,6 +16,7 @@ movie record ; turn y 1 360 ; wait ; movie encode output video.mp4
     subprocess.run([r"C:\Program Files\ChimeraX 1.9\bin\chimerax.exe","--script", script_path]) # voert het uit
 
 
+
 chimera_starten()
 
 
