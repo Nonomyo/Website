@@ -1,21 +1,26 @@
 import subprocess
-import os
-
 
 def chimera_starten():
-    insuline  = r"C:\Users\naomy\Downloads\pdb1a7f.ent" # deze is bij mij (gedownload) en dan insuline
-    # je kan hier ook bijvoorbeeld boven ook alleen: '1a0m' invullen als losse string
-    # wat een build-in ID is invullen en dan opent hij die.
+    protein = input("Voer id in: ") #voor ons voor een input
 
-    subprocess.run([r"C:\Program Files\ChimeraX 1.9\bin\chimerax.exe",insuline]) # hier opent hij chimera
-    # via MIJN path dit verschilt wss met iedereen maarja kijken we wel naar, tweede argument
-    # is puur voor het openen van een bepaald protein. als je deze weghaald opent hij gewoon chimera
-    # de start pagina
+   # dit is de inhoud van het tijdelijke script
+    script_inhoud_tijdelijk = f"""open {protein} 
+movie record ; turn y 1 360 ; wait ; movie encode output video.mp4
 
+"""
 
+    script_path = "temp_chimerax.cxc"  # hij maakt hier het tekst bestand (.cxc) voor het tijdelijke script
+    with open(script_path, "w") as script_file: # opent het tijdelijke script in write modes
+        script_file.write(script_inhoud_tijdelijk) # zet de tijdelijke inhoud in het script
+
+    subprocess.run([r"C:\Program Files\ChimeraX 1.9\bin\chimerax.exe","--script", script_path]) # voert het uit
 
 
 chimera_starten()
+
+
+
+
 
 
 
