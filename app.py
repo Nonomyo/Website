@@ -14,7 +14,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # Dit is een lijst met titels voor alle pagina's op de website
-titels = ['Super Coole Website', 'UCSF Chimera', 'BLAST', 'Help', 'About Us', 'output', 'error']
+titels = ['Super Coole Website', 'UCSF Chimera', 'BLAST', 'Help', 'About Us', 'Output', 'Error']
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -24,16 +24,17 @@ def home():
       """
     # Tot je iets invoerd zie je de "normale" Home Page.
     if request.method == 'GET':
-        return render_template('HOMEPAGE.html', titel=titels[0])
+        return render_template(template_name_or_list = 'HOMEPAGE.html', titel=titels[0])
 
     # Wanneer je een sequentie invoerd zie je een nieuwe pagina.
     elif request.method == 'POST':
         fname = request.form.get('fname', '')
 
         if not fname:
-            return render_template('errorpage.html', titel=titels[6])
+            return render_template(template_name_or_list = 'errorpage.html', titel=titels[6])
+
         # slaat de fname op en geeft die door aan de output
-        return render_template('output.html', fname=fname, titel=titels[5])
+        return render_template(template_name_or_list = 'output.html', fname=fname, titel=titels[5])
 
 @app.route('/Chimera')
 def chimera():
@@ -71,11 +72,9 @@ def about_us():
 def error():
     ''''
     in deze functie staat de error pagina.
-    :return: ERROR.html met de titel 'Error'
+    :return: ERROR.html met de titel 'error'
     '''
-    return render_template(template_name_or_list = 'error.html', titel = 'error')
-
-
+    return render_template(template_name_or_list = 'error.html', titel = titels[6])
 
 
 if __name__ == '__main__':
