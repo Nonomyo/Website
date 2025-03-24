@@ -1,0 +1,23 @@
+{% extends "website.html" %}
+
+{% block content %}
+
+<article>
+    <h2>WEBSITE NAAM?</h2>
+    <form action="" method="post">
+        <label for="fname">Sequentie:</label>
+        <input type="text" id="fname" name="fname">
+        <br><br>
+        <input type="submit" value="Zoeken">
+        <br><br>
+        <label for="prot_id">Eiwit ID:</label>
+        <input type="text" id="prot_id" name="prot_id">
+        <br><br>
+        <input type="submit" value="Zoeken">
+        <p>Welkom bij onze website voor het vertalen en informeren van eiwitten.
+            <br>
+           Vul bovenin een DNA, RNA, nucleotide, aminozuur sequentie in of een eiwit en laat je informeren!
+        </p>
+    </form>
+</article>
+{% endblock %}
