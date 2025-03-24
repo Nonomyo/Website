@@ -14,7 +14,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # Dit is een lijst met titels voor alle pagina's op de website
-titels = ['Super Coole Website', 'UCSF Chimera', 'BLAST', 'Help', 'About Us', 'Output', 'Error']
+titels = ['Super Coole Website', 'UCSF ChimeraX', 'BLAST', 'Help', 'About Us', 'Output', 'Error']
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -36,11 +36,11 @@ def home():
         # slaat de fname op en geeft die door aan de output
         return render_template(template_name_or_list = 'output.html', fname=fname, titel=titels[5])
 
-@app.route('/Chimera')
+@app.route('/ChimeraX')
 def chimera():
     """
-    In deze functie staat de Chimera pagina.
-    :return: CHIMERA.html met de titel 'UCSF Chimera'
+    In deze functie staat de ChimeraX pagina.
+    :return: CHIMERA.html met de titel 'UCSF ChimeraX'
     """
     return render_template(template_name_or_list = 'CHIMERA.html', titel = titels[1])
 
