@@ -64,7 +64,7 @@ Voer nu `chimera-1.19-linux_x86_64.bin` in in de terminal, nu begint de tool te 
   
 De terminal geeft vervolgens "Enter install location" weer.  
 Er wordt dan automatisch ingevuld dat Chimera in de "Downloads" folder wordt gedownload.  
-Verwijder deze tekst en vul in de terminal in:`/Documents/chimera_map`  
+Verwijder deze tekst en vul in de terminal in:`~/Documents/chimera_map`  
   
 De terminal geeft nu "Install desktop menu and icon?" weer en vult automatisch "yes" in, klik hier op `enter`.  
 Vervolgens geeft het terug: "Install symbolic link to chimera executable for command line use in which directory?".  
