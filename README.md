@@ -38,27 +38,22 @@ De website wordt gerunned via een Python file die gebruik maakt van **Flask**.
 ## Linux installatie
   
 Maak een map aan in de Linux terminal door gebruik te maken van de volgende invoer:
-`mkdir /homes/jouwgebruikersnaam/locatie/mapnaam`  
-
-Vervang hierbij:
-*jouwgebruikersnaam* door jouw daadwerkelijke gebruikersnaam op het systeem.
-*locatie* door de map waarin je een nieuwe map wilt aanmaken (of laat dit weg als je de map direct in je home-map wilt plaatsen).
-*mapnaam* door de naam van de nieuwe map die je wilt maken. 
+`cd ~`
+`mkdir Documents/chimera_map`
   
 Ga naar de volgende website voor de tool: https://www.cgl.ucsf.edu/chimera/download.html
   
 Klik op deze website op de knop “Download” aan de linkerkant van het scherm.
+
+Klik onder "Current Production Releases" op de link: "chimera-1.19-linux_x86_64.bin"
   
-Klik onder "Current Production Releases" op de link: `chimera-1.19-linux_x86_64.bin`
-  
-Deze link download het installatieprogramma van de nieuwste versie van ChimeraX die beschikbaar op Linux.
+Deze link download het installatieprogramma van de nieuwste versie van Chimera die beschikbaar op Linux.
   
 Klik vervolgens op “Accept” onderaan het scherm, de tool begint nu met downloaden.
   
 Volg nu de volgende stappen in de terminal om naar de "Downloads" folder te gaan:  
-Om terug te gaan naar "homes" folder: `cd ~`  
 Om naar de "Downloads" folder te gaan: `cd Downloads`  
-Check door middel van de volgende input of het installatieprogramma "chimera-1.19-linux_x86_64.bin" in de map staat: `ls`  
+Check door middel van de volgende input of het installatieprogramma "chimera-1.19-linux_x86_64.bin" in de map staat: `ls`
     
 Nu moet je jezelf toegang geven aan de tool, dit doe je door dit in de terminal te zetten:  
 `chmod +x chimera-1.19-linux_x86_64.bin`  
@@ -68,19 +63,19 @@ Met `ls –l` zie je nu dat "chimera-1.18-linux_x86_64.bin" groen is geworden.
 Voer nu `chimera-1.19-linux_x86_64.bin` in in de terminal, nu begint de tool te downloaden.  
   
 De terminal geeft vervolgens "Enter install location" weer.  
-Er wordt dan automatisch ingevuld dat ChimeraX in de "Downloads" folder wordt gedownload.  
-Verwijder deze tekst en vul in de terminal in: `/homes/jouwgebruikersnaam/locatie/mapnaam`  
+Er wordt dan automatisch ingevuld dat Chimera in de "Downloads" folder wordt gedownload.  
+Verwijder deze tekst en vul in de terminal in:`/Documents/chimera_map`  
   
 De terminal geeft nu "Install desktop menu and icon?" weer en vult automatisch "yes" in, klik hier op `enter`.  
 Vervolgens geeft het terug: "Install symbolic link to chimera executable for command line use in which directory?".  
 Klik ook hier de `enter` toets in.  
   
-De installatie is hierna klaar en er wordt gevraag om op `return` te klikken.  
+De installatie is hierna klaar en er wordt gevraagd om op `return` te klikken.  
   
-Gebruik nu `cd ~` en daarna `cd locatie/mapnaam` om te checken of ChimeraX erin staat.  
+Gebruik nu `cd ~` en daarna `cd Documents/chimera_map` om te checken of Chimera erin staat.  
   
-Het hele pad naar de tool is dus:  
-`/homes /jouwnaam/locatie/mapnaam/bin/chimera`  
+Het hele pad vanaf de home map naar de tool is dus:
+`Documents/chimera_map/bin/chimera`  
 
 ## Contactgegevens
   
