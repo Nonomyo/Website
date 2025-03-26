@@ -68,14 +68,6 @@ def about_us():
     """
     return render_template(template_name_or_list = 'ABOUT_US.html', titel = titels[4])
 
-@app.route('/Error')
-def error():
-    ''''
-    in deze functie staat de error pagina.
-    :return: ERROR.html met de titel 'error'
-    '''
-    return render_template(template_name_or_list = 'error.html', titel = titels[6])
-
 
 if __name__ == '__main__':
     app.run()
