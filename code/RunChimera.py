@@ -18,7 +18,7 @@ import subprocess
 
 class RunChimera():
     def __init__(self, user_input):
-        self.chimera = r"C:\Program Files\Chimera 1.19\bin\chimera.exe"
+        self.chimera = r"C:\Program Files\ChimeraX 1.9\bin\ChimeraX.exe"
         self.user_input = user_input
 
 
@@ -40,7 +40,7 @@ class RunChimera():
         script_path = "temp_chimera.cxc"
         with open(script_path, "w") as script_file:
             script_file.write(huidig_script)
-        subprocess.run([r"C:\Program Files\ChimeraX 1.9\bin\ChimeraX.exe", '--script', script_path])
+        subprocess.run([self.chimera, '--script', script_path])
 
 
     def __str__(self):
