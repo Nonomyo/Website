@@ -28,13 +28,13 @@ def home():
 
     # Wanneer je een sequentie invoerd zie je een nieuwe pagina.
     elif request.method == 'POST':
-        fname = request.form.get('fname', '')
+        prot_id = request.form.get('prot_id', '')
 
-        if not fname:
+        if not prot_id:
             return render_template(template_name_or_list = 'errorpage.html', titel=titels[6])
 
         # slaat de fname op en geeft die door aan de output
-        return render_template(template_name_or_list = 'output.html', fname=fname, titel=titels[5])
+        return render_template(template_name_or_list = 'output.html', prot_id=prot_id, titel=titels[5])
 
 @app.route('/ChimeraX')
 def chimera():
@@ -67,14 +67,6 @@ def about_us():
     :return: ABOUT_US.html met de titel 'About Us'
     """
     return render_template(template_name_or_list = 'ABOUT_US.html', titel = titels[4])
-
-@app.route('/Error')
-def error():
-    ''''
-    in deze functie staat de error pagina.
-    :return: ERROR.html met de titel 'error'
-    '''
-    return render_template(template_name_or_list = 'error.html', titel = titels[6])
 
 
 if __name__ == '__main__':

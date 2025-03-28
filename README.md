@@ -4,7 +4,7 @@ De super coole website
 Versie 2
 11-03-2025
   
-Een website die willekeurige opgegeven DNA codons van de gebruiker kan omzetten in een
+Een website die bestaande DNA sequentie van de gebruiker kan omzetten in een
 aminozuursequentie, die vervolgens weer kan worden gekoppeld aan het bijpassende eiwit.
   
 Hierbij wordt gebruik gemaakt van **BioPython**,**BLAST** en **UCSF ChimeraX**.  
@@ -35,53 +35,46 @@ kan het zijn dat de koppeling en visualisatie niet mogelijk is.
 De website wordt gerunned via een Python file die gebruik maakt van **Flask**.  
 **Flask** is een verzameling libraries en een Python-module waarmee eenvoudig een webapplicatie ontwikkeld kan worden.    
   
-## Linux installatie
+## ChimeraX Linux installatie
   
 Maak een map aan in de Linux terminal door gebruik te maken van de volgende invoer:
-`mkdir /homes/jouwgebruikersnaam/locatie/mapnaam`  
-
-Vervang hierbij:
-*jouwgebruikersnaam* door jouw daadwerkelijke gebruikersnaam op het systeem.
-*locatie* door de map waarin je een nieuwe map wilt aanmaken (of laat dit weg als je de map direct in je home-map wilt plaatsen).
-*mapnaam* door de naam van de nieuwe map die je wilt maken. 
+`cd ~`
+`mkdir Documents/chimera_map`
   
-Ga naar de volgende website voor de tool: https://www.cgl.ucsf.edu/chimera/download.html
+Ga naar de volgende website voor de tool: https://www.cgl.ucsf.edu/chimerax/download.html
   
-Klik op deze website op de knop “Download” aan de linkerkant van het scherm.
+Kijk onder "ChimeraX version 1.9" en klik op "Other releases".
   
-Klik onder "Current Production Releases" op de link: `chimera-1.19-linux_x86_64.bin`
-  
-Deze link download het installatieprogramma van de nieuwste versie van ChimeraX die beschikbaar op Linux.
+Zoek naar Ubuntu 22.04 (Linux) en klik op de volgende link: "ucsf-chimerax_1.9ubuntu22.04_amd64.deb".
   
 Klik vervolgens op “Accept” onderaan het scherm, de tool begint nu met downloaden.
   
 Volg nu de volgende stappen in de terminal om naar de "Downloads" folder te gaan:  
-Om terug te gaan naar "homes" folder: `cd ~`  
 Om naar de "Downloads" folder te gaan: `cd Downloads`  
-Check door middel van de volgende input of het installatieprogramma "chimera-1.19-linux_x86_64.bin" in de map staat: `ls`  
+Check door middel van de volgende input of het installatieprogramma "ucsf-chimerax_1.9ubuntu22.04_amd64.deb" in de map staat: `ls`
     
 Nu moet je jezelf toegang geven aan de tool, dit doe je door dit in de terminal te zetten:  
-`chmod +x chimera-1.19-linux_x86_64.bin`  
+`chmod +x ucsf-chimerax_1.9ubuntu22.04_amd64.deb`  
     
-Met `ls –l` zie je nu dat "chimera-1.18-linux_x86_64.bin" groen is geworden.  
+Met `ls –l` zie je nu dat "ucsf-chimerax_1.9ubuntu22.04_amd64.deb" groen is geworden.  
     
-Voer nu `chimera-1.19-linux_x86_64.bin` in in de terminal, nu begint de tool te downloaden.  
+Voer nu `mv ucsf-chimerax_1.9ubuntu22.04_amd64.deb Documents/chimera_map` in in de terminal, hiermee verplaats je de tool naar de juiste map.
   
-De terminal geeft vervolgens "Enter install location" weer.  
-Er wordt dan automatisch ingevuld dat ChimeraX in de "Downloads" folder wordt gedownload.  
-Verwijder deze tekst en vul in de terminal in: `/homes/jouwgebruikersnaam/locatie/mapnaam`  
+Open nu de verkenner en ga naar "chimera_map" onder "Documents".
   
-De terminal geeft nu "Install desktop menu and icon?" weer en vult automatisch "yes" in, klik hier op `enter`.  
-Vervolgens geeft het terug: "Install symbolic link to chimera executable for command line use in which directory?".  
-Klik ook hier de `enter` toets in.  
+Pak het .deb bestand uit.
   
-De installatie is hierna klaar en er wordt gevraag om op `return` te klikken.  
+Hieruit komen weer twee mapjes.
   
-Gebruik nu `cd ~` en daarna `cd locatie/mapnaam` om te checken of ChimeraX erin staat.  
+Pak vervolgens de usr map ook uit, hierin staat de bin map.
   
-Het hele pad naar de tool is dus:  
-`/homes /jouwnaam/locatie/mapnaam/bin/chimera`  
-
+De installatie is hierna gelukt.
+  
+Gebruik nu `cd ~` in de terminal en daarna `cd Documents/chimera_map/usr/bin/chimera` om te checken of Chimera erin staat.  
+  
+Het hele pad vanaf de home map naar de tool is dus:
+`~/Documents/chimera_map/usr/bin/chimera`  
+  
 ## Contactgegevens
   
 Fleur Luten - f.luten@st.hanze.nl
