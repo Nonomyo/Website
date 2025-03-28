@@ -65,6 +65,13 @@ def about_us():
     """
     return render_template(template_name_or_list = 'ABOUT_US.html', titel = titels[4])
 
+@app.route('/make-pink', methods=['POST'])
+def make_pink():
+    global is_pink
+    is_pink = True  # Zet de knop roze
+    return render_template('index.html', is_pink=is_pink)
+
+
 
 
 if __name__ == '__main__':

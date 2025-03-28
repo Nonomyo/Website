@@ -1,12 +1,16 @@
 {% extends "website.html" %}
 
 {% block content %}
-  <article>
-      <h2>WEBSITE NAAM</h2>
-      <p>De sequentie die je hebt ingevuld is:{{ prot_id }}</p>
+   <article>
+        <h2>WEBSITE NAAM</h2>
+        <p>De sequentie die je hebt ingevuld is: {{ prot_id }}</p>
 
-    <video width="400" controls>
-     <source src="/static/video.mp4" type="video/mp4">
-    <source src="/static/video.mp4" type="video/ogg">
+        <video width="600" controls>
+            <source src="/static/video.mp4" type="video/mp4">
+            <source src="/static/video.mp4" type="video/ogg">
+        </video>
+
+}
+</script>
     </article>
 {% endblock %}

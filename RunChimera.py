@@ -32,3 +32,6 @@ class RunChimera:
 
         subprocess.run([self.chimera, '--script', script_path])
 
+
+
+

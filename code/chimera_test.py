@@ -1,4 +1,4 @@
-from chimera import runCommand
+from tests.chimera import runCommand
 
 runCommand('open 8rzu')
 
