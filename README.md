@@ -10,7 +10,7 @@ aminozuursequentie, die vervolgens weer kan worden gekoppeld aan het bijpassende
 Hierbij wordt gebruik gemaakt van **BioPython**,**BLAST** en **UCSF ChimeraX**.  
 **Biopython** is een verzameling van beschikbare Python modules voor computationele moleculaire biologie.  
 **BLAST** staat voor Basic Local Alignment Search Tool. Het vindt regio's van gelijkenis tussen biologische sequenties.  
-**UCSF Chimera** is een programma voor de interactieve visualisatie en analyse van moleculaire structuren en gerelateerde gegevens.  
+**UCSF ChimeraX** is een programma voor de interactieve visualisatie en analyse van moleculaire structuren en gerelateerde gegevens.  
   
 Onderstaand is een voorbeeld weergegeven van de data over een sequentie die BioPython en BLAST terug kunnen geven.  
   
@@ -28,8 +28,8 @@ Net als in het bovenstaande voorbeeld, wordt de visualisatie van een eiwit op on
 van de 3D-structuur.  
   
 De koppeling aan het eiwit en de visualisatie ervan zijn wel afhankelijk van de aanwezigheid van de data over het opgegeven  
-eiwit in diverse databases (PDB, Uniprot, etc.).  
-Als er nog geen 3D-structuur van dit eiwit in de databases bestaat en/of als het eiwit nog niet goed onderzocht is,  
+eiwit in de PDB-database.
+Als er nog geen 3D-structuur van dit eiwit in de database bestaat en/of als het eiwit nog niet goed onderzocht is,  
 kan het zijn dat de koppeling en visualisatie niet mogelijk is.  
   
 De website wordt gerunned via een Python file die gebruik maakt van **Flask**.  
@@ -39,7 +39,7 @@ De website wordt gerunned via een Python file die gebruik maakt van **Flask**.
   
 Maak een map aan in de Linux terminal door gebruik te maken van de volgende invoer:
 `cd ~`
-`mkdir Documents/chimera_map`
+`mkdir Documents/chimerax_map`
   
 Ga naar de volgende website voor de tool: https://www.cgl.ucsf.edu/chimerax/download.html
   
@@ -49,8 +49,10 @@ Zoek naar Ubuntu 22.04 (Linux) en klik op de volgende link: "ucsf-chimerax_1.9ub
   
 Klik vervolgens op “Accept” onderaan het scherm, de tool begint nu met downloaden.
   
-Volg nu de volgende stappen in de terminal om naar de "Downloads" folder te gaan:  
+Volg nu de volgende stappen in de terminal om naar de "Downloads" folder te gaan: 
+   
 Om naar de "Downloads" folder te gaan: `cd Downloads`  
+  
 Check door middel van de volgende input of het installatieprogramma "ucsf-chimerax_1.9ubuntu22.04_amd64.deb" in de map staat: `ls`
     
 Nu moet je jezelf toegang geven aan de tool, dit doe je door dit in de terminal te zetten:  
@@ -58,22 +60,24 @@ Nu moet je jezelf toegang geven aan de tool, dit doe je door dit in de terminal 
     
 Met `ls –l` zie je nu dat "ucsf-chimerax_1.9ubuntu22.04_amd64.deb" groen is geworden.  
     
-Voer nu `mv ucsf-chimerax_1.9ubuntu22.04_amd64.deb Documents/chimera_map` in in de terminal, hiermee verplaats je de tool naar de juiste map.
+Knip deze .deb map en plak deze in "chimerax_map".
   
-Open nu de verkenner en ga naar "chimera_map" onder "Documents".
+Klik met de rechter muisknop op de .deb map en klik vervolgens op "Open with Ark".
   
-Pak het .deb bestand uit.
+Druk op "Extract" en kies als locatie ook "chimerax_map".
   
-Hieruit komen weer twee mapjes.
+Hieruit komt een nieuwe map die dezelfde naam heeft als de .deb map.
+
+Klik op deze map, knip de drie bestanden die hierin staan en plaats ook deze bestanden in "chimerax_map".
+
+Pak nu "data.tar.zst" uit door "Open with Ark" en selecteer ook hier als locatie "chimerax_map".
+
+In de uitgepakte "usr" map zit de map "bin" waarin ChimeraX zich bevindt.
   
-Pak vervolgens de usr map ook uit, hierin staat de bin map.
-  
-De installatie is hierna gelukt.
-  
-Gebruik nu `cd ~` in de terminal en daarna `cd Documents/chimera_map/usr/bin/chimera` om te checken of Chimera erin staat.  
+Dit is waar het programma zich nu bevindt.
   
 Het hele pad vanaf de home map naar de tool is dus:
-`~/Documents/chimera_map/usr/bin/chimera`  
+`~/Documents/chimerax_map/ucsf-chimerax_1.9ubuntu22.04_amd64/usr/bin/chimerax `
   
 ## Contactgegevens
   
