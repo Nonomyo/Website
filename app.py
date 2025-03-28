@@ -9,6 +9,7 @@ HTML pagina's, CSS en code die samen werken om een goed werkende webiste te make
 """
 
 from flask import Flask, render_template, request
+from RunChimera import RunChimera
 
 
 app = Flask(__name__)
@@ -18,23 +19,19 @@ titels = ['Super Coole Website', 'UCSF ChimeraX', 'BLAST', 'Help', 'About Us', '
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    """
-      In deze functie staan de Home Page en de Output.
-      :return: HOMEPAGE.html of output.html met de titel 'Super Coole Website'
-      """
-    # Tot je iets invoerd zie je de "normale" Home Page.
-    if request.method == 'GET':
-        return render_template(template_name_or_list = 'HOMEPAGE.html', titel=titels[0])
-
-    # Wanneer je een sequentie invoerd zie je een nieuwe pagina.
-    elif request.method == 'POST':
+    error_message = None
+    if request.method == 'POST':
         prot_id = request.form.get('prot_id', '')
 
         if not prot_id:
-            return render_template(template_name_or_list = 'errorpage.html', titel=titels[6])
+            return render_template("errorpage.html", titel=titels[6], error="errormesage.html")
 
-        # slaat de fname op en geeft die door aan de output
-        return render_template(template_name_or_list = 'output.html', prot_id=prot_id, titel=titels[5])
+        chimera_start = RunChimera()
+        chimera_start.get_input(prot_id)
+
+        return render_template("output.html", prot_id=prot_id, titel=titels[5], video=True)
+
+    return render_template("HOMEPAGE.html", titel=titels[0], error=error_message)
 
 @app.route('/ChimeraX')
 def chimera():
@@ -67,6 +64,7 @@ def about_us():
     :return: ABOUT_US.html met de titel 'About Us'
     """
     return render_template(template_name_or_list = 'ABOUT_US.html', titel = titels[4])
+
 
 
 if __name__ == '__main__':
