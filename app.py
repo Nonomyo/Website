@@ -11,15 +11,16 @@ HTML pagina's, CSS en code die samen werken om een goed werkende webiste te make
 from flask import Flask, render_template, request
 from RunChimera import RunChimera
 
-
 app = Flask(__name__)
 
+
 # Dit is een lijst met titels voor alle pagina's op de website
-titels = ['Super Coole Website', 'UCSF ChimeraX', 'BLAST', 'Help', 'About Us', 'Output', 'Error']
+titels = ['Super Coole Website', 'UCSF ChimeraX', 'BLAST', 'Help', 'About Us', 'Output', 'Error', 'Databases']
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
     error_message = None
+
     if request.method == 'POST':
         prot_id = request.form.get('prot_id', '')
 
@@ -48,6 +49,15 @@ def blast():
     :return: BLAST.html met de titel 'BLAST'
     """
     return render_template(template_name_or_list = 'BLAST.html', titel = titels[2])
+
+
+@app.route('/Databases')
+def databases():
+    """
+    In deze functie staat de Databases pagina.
+    :return: DATABASES.html met de titel 'Databases'
+    """
+    return render_template(template_name_or_list = 'DATABASES.html', titel = titels[7])
 
 @app.route('/Help')
 def help():
