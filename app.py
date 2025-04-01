@@ -8,7 +8,7 @@ CCS en Flask een werkende website te maken die een visualisatie kan maken. Onze 
 HTML pagina's, CSS en code die samen werken om een goed werkende webiste te maken.
 """
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from RunChimera import RunChimera
 
 app = Flask(__name__)
@@ -23,12 +23,13 @@ def home():
 
     if request.method == 'POST':
         prot_id = request.form.get('prot_id', '')
+        color = request.form.get('color', 'none')  # Haal de kleurparameter op
 
         if not prot_id:
             return render_template("errorpage.html", titel=titels[6], error="errormesage.html")
 
         chimera_start = RunChimera()
-        chimera_start.get_input(prot_id)
+        chimera_start.get_input(prot_id, color=color)
 
         return render_template("output.html", prot_id=prot_id, titel=titels[5], video=True)
 
@@ -74,14 +75,6 @@ def about_us():
     :return: ABOUT_US.html met de titel 'About Us'
     """
     return render_template(template_name_or_list = 'ABOUT_US.html', titel = titels[4])
-
-@app.route('/make-pink', methods=['POST'])
-def make_pink():
-    global is_pink
-    is_pink = True  # Zet de knop roze
-    return render_template('index.html', is_pink=is_pink)
-
-
 
 
 if __name__ == '__main__':

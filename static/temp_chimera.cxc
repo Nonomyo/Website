@@ -1,3 +1,4 @@
-open 1bom 
-        movie record ; turn y 1 360 ; wait ; movie encode output static/video.mp4 ; quit
+open 1bom
+ rainbow protein
+movie record ; turn y 1 360 ; wait ; movie encode output static/video.mp4 ; quit
         

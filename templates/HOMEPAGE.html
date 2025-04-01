@@ -6,61 +6,44 @@
     <title>Eiwit Zoeker</title>
 </head>
 <body>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoek een eiwitstructuur</title>
+</head>
+<body>
     <h1>Zoek een eiwitstructuur</h1>
     <form action="/" method="post">
         <label for="prot_id">Eiwit ID:</label>
         <input type="text" id="prot_id" name="prot_id" required>
         <br><br>
+
+        <label for="color">Kleur voor visualisatie:</label>
+        <select id="color" name="color">
+            <option value="none">Geen kleur</option>
+            <option value="color pink">Roze</option>
+            <option value="color blue">Blauw</option>
+            <option value="color red">Rood</option>
+            <option value="color green">Groen</option>
+            <option value="color yellow">Geel</option>
+            <option value="color orange">Oranje</option>
+            <option value="color purple">Paars</option>
+             <option value="rainbow protein">regenboog</option>
+        </select>
+        <br><br>
+
         <input type="submit" value="Zoeken">
-        <p> Vul hierboven een vier letterig ID in en chimera begint met deze te visualiseren!
-        <br> enkele voorbeelden: <br> 1bom <br> 1JM7 <br> 1a0m <br> 1uqb </p>
-        <button onclick="myFunction()">databases</button>
+        <p> Vul hierboven een vier letterig ID in en ChimeraX begint met deze te visualiseren! <br>
+        Enkele voorbeelden: <br> 1bom <br> 1JM7 <br> 1a0m <br> 1uqb </p>
+    </form>
+</body>
+</html>
 
-<script>
-function myFunction() {
-  var numButtons = 5; //
 
-  // Links die je naar de knoppen wilt sturen
-  var links = [
-    "https://www.uniprot.org/",
-    "https://alphafold.ebi.ac.uk/",
-    "https://www.ebi.ac.uk/emdb/",
-    "https://modelarchive.org/",
-    "https://pubchem.ncbi.nlm.nih.gov/"
-  ];
-
-  // Namen voor de knoppen
-  var buttonNames = [
-    "Uniprot",
-    "alpha fold",
-    "EMDB",
-    "model archive",
-    "Pubchem"
-  ];
-
-  // Loop om meerdere knoppen te maken
-  for (var i = 0; i < numButtons; i++) {
-    // Maak een nieuwe knop
-    var x = document.createElement("BUTTON");
-
-    // Maak tekst voor de knop
-    var t = document.createTextNode(buttonNames[i]);  // Gebruik de naam uit de array
-
-    // Voeg de tekst toe aan de knop
-    x.appendChild(t);
-
-    // Voeg een eventlistener toe die naar een specifieke link gaat
-    x.onclick = (function(url) {
-      return function() {
-        window.location.href = url;  // Deze knop gaat naar de specifieke URL
-      };
-    })(links[i]);  // De link die bij de knop hoort
-
-    // Voeg de knop toe aan de body van de pagina
-    document.body.appendChild(x);
   }
 }
-</script>
 
 
 
