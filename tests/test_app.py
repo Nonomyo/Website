@@ -1,3 +1,13 @@
+"""
+Test website html
+versie 1
+Bio-informatica leerjaar 1
+Fleur Luten, Isa Bos, Naomy Schuppers, Yde de Vos
+
+In dit script worden alle functies in de app.py getest met unittests. In app.py staan de html pagina's van de website.
+Vooral de opmaak van de website wordt dus in dit script getest.
+"""
+
 import pytest
 from app import app
 
@@ -12,6 +22,7 @@ def client():
     with app.test_client() as client:
         # yield zorgt ervoor dat de client beschikbaar is voor de tests die deze fixture gebruiken.
         yield client
+
 
 # De tests van de homepage heb ik even uit gezet, omdat de homepage heel wat is veranderd en nog gaat veranderen.
 
@@ -43,7 +54,6 @@ def client():
 #     # Controleert het navigatieschema.
 #     assert b'href="/"' in response.data  # Home
 #     assert b'href="/ChimeraX"' in response.data
-#     assert b'href="/BLAST"' in response.data
 #     assert b'href="/Databases"' in response.data
 #     assert b'href="/Help"' in response.data
 #     assert b'href="/AboutUs"' in response.data
@@ -95,7 +105,6 @@ def test_chimera(client):
     # Controleert het navigatieschema.
     assert b'href="/"' in response.data  # Home
     assert b'href="/ChimeraX"' in response.data
-    assert b'href="/BLAST"' in response.data
     assert b'href="/Databases"' in response.data
     assert b'href="/Help"' in response.data
     assert b'href="/AboutUs"' in response.data
@@ -116,16 +125,19 @@ def test_chimera(client):
     assert b'<img src="../static/ucsf-chimera.png"' in response.data
 
 
-def test_blast(client):
-    response = client.get("/BLAST")
-    assert response.status_code == 200
-    # Controleert of de titel van de pagina klopt.
-    assert b"BLAST" in response.data
-
-    # Ik laat deze even voor hoe hij is, omdat we nog niet zeker weten of we blast wel gaan gebruiken.
-
-
 def test_databases(client):
+    """
+       In deze test functie wordt de Databases pagina van de website gecontroleerd.
+       Er wordt getest of de volgende onderdelen aanwezig zijn/werken:
+       - Header: titel van de pagina en afbeelding
+       - Navigatieschema
+       - Titel van de tekst en de eerste zin van de tekst
+       - Titel, link naar website en eerste zin van de tekst per database
+
+       :param client: test client om de functie te testen
+       :return: een pass als de functie doet wat hij moet doen en een error als dit niet zo is.
+    """
+
     # Zorgt ervoor dat deze functie de Databases pagina controleert.
     response = client.get("/Databases")
 
@@ -140,15 +152,56 @@ def test_databases(client):
     # Controleert het navigatieschema.
     assert b'href="/"' in response.data  # Home
     assert b'href="/ChimeraX"' in response.data
-    assert b'href="/BLAST"' in response.data
     assert b'href="/Databases"' in response.data
     assert b'href="/Help"' in response.data
     assert b'href="/AboutUs"' in response.data
 
     # Controleert of de eerste h2-tag met de titel aanwezig is.
-    assert b'Deze databases kan je gebruiken:</h2>' in response.data
+    assert b'Waarom Databases?</h2>' in response.data
+    # Controleert of het eerste deel van de eerste zin van de tekst klopt.
+    assert b"ChimeraX maakt gebruik van verschillende databases" in response.data
 
-    # Moeten we even afmaken als we info op de pagina hebben staan bij de databases.
+    # Controleert of de UniProt h2-tag met de titel aanwezig is.
+    assert b'UniProt:</h2>' in response.data
+    # Controleert of de link naar UniProt aanwezig is
+    assert b'<a href="https://www.uniprot.org/" target="_blank">UniProt</a>' in response.data
+    # Controleert of het eerste deel van de eerste zin van de tekst klopt.
+    assert b'is een uitgebreide database' in response.data
+
+    # Controleert of de AlphaFold h2-tag met de titel aanwezig is.
+    assert b'AlphaFold:</h2>' in response.data
+    # Controleert of de link naar AlphaFold aanwezig is
+    assert b'<a href="https://alphafold.ebi.ac.uk/" target="_blank">AlphaFold</a>' in response.data
+    # Controleert of het eerste deel van de eerste zin van de tekst klopt.
+    assert b'biedt voorspelde eiwitstructuren' in response.data
+
+    # Controleert of de EMDB h2-tag met de titel aanwezig is.
+    assert b'EMDB (Electron Microscopy Data Bank):</h2>' in response.data
+    # Controleert of de link naar EMBD aanwezig is
+    assert b'<a href="https://www.ebi.ac.uk/emdb/" target="_blank">EMDB</a>' in response.data
+    # Controleert of het eerste deel van de eerste zin van de tekst klopt.
+    assert b'bevat cryo-elektronmicroscopie' in response.data
+
+    # Controleert of de ModelArchive h2-tag met de titel aanwezig is.
+    assert b'ModelArchive:</h2>' in response.data
+    # Controleert of de link naar ModelArchive aanwezig is
+    assert b'<a href="https://modelarchive.org/" target="_blank">ModelArchive</a>' in response.data
+    # Controleert of het eerste deel van de eerste zin van de tekst klopt.
+    assert b'slaat theoretische en computationele' in response.data
+
+    # Controleert of de PubChem h2-tag met de titel aanwezig is.
+    assert b'PubChem:</h2>' in response.data
+    # Controleert of de link naar PubChem aanwezig is
+    assert b'<a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank">PubChem</a>' in response.data
+    # Controleert of het eerste deel van de eerste zin van de tekst klopt.
+    assert b'is een database met' in response.data
+
+    # Controleert of de RCSB PDB h2-tag met de titel aanwezig is.
+    assert b'RCSB PDB:</h2>' in response.data
+    # Controleert of de link naar PubChem aanwezig is
+    assert b'<a href="https://www.rcsb.org/" target="_blank">RCSB</a>' in response.data
+    # Controleert of het eerste deel van de eerste zin van de tekst klopt.
+    assert b'is een databank die wetenschappelijke doorbraken' in response.data
 
 
 def test_help(client):
@@ -167,7 +220,6 @@ def test_help(client):
     # Controleert het navigatieschema.
     assert b'href="/"' in response.data  # Home
     assert b'href="/ChimeraX"' in response.data
-    assert b'href="/BLAST"' in response.data
     assert b'href="/Databases"' in response.data
     assert b'href="/Help"' in response.data
     assert b'href="/AboutUs"' in response.data
@@ -201,7 +253,6 @@ def test_about_us(client):
     # Controleert het navigatieschema.
     assert b'href="/"' in response.data  # Home
     assert b'href="/ChimeraX"' in response.data
-    assert b'href="/BLAST"' in response.data
     assert b'href="/Databases"' in response.data
     assert b'href="/Help"' in response.data
     assert b'href="/AboutUs"' in response.data
