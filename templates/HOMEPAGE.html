@@ -4,7 +4,6 @@
 
 <article>
     <title>Eiwit Zoeker</title>
-</head>
 <body>
     <h1>Zoek een eiwitstructuur</h1>
     <form action="/" method="post">
@@ -14,63 +13,7 @@
         <input type="submit" value="Zoeken">
         <p> Vul hierboven een vier letterig ID in en chimera begint met deze te visualiseren!
         <br> enkele voorbeelden: <br> 1bom <br> 1JM7 <br> 1a0m <br> 1uqb </p>
-        <button onclick="myFunction()">databases</button>
-
-<script>
-function myFunction() {
-  var numButtons = 5; //
-
-  // Links die je naar de knoppen wilt sturen
-  var links = [
-    "https://www.uniprot.org/",
-    "https://alphafold.ebi.ac.uk/",
-    "https://www.ebi.ac.uk/emdb/",
-    "https://modelarchive.org/",
-    "https://pubchem.ncbi.nlm.nih.gov/"
-  ];
-
-  // Namen voor de knoppen
-  var buttonNames = [
-    "Uniprot",
-    "alpha fold",
-    "EMDB",
-    "model archive",
-    "Pubchem"
-  ];
-
-  // Loop om meerdere knoppen te maken
-  for (var i = 0; i < numButtons; i++) {
-    // Maak een nieuwe knop
-    var x = document.createElement("BUTTON");
-
-    // Maak tekst voor de knop
-    var t = document.createTextNode(buttonNames[i]);  // Gebruik de naam uit de array
-
-    // Voeg de tekst toe aan de knop
-    x.appendChild(t);
-
-    // Voeg een eventlistener toe die naar een specifieke link gaat
-    x.onclick = (function(url) {
-      return function() {
-        window.location.href = url;  // Deze knop gaat naar de specifieke URL
-      };
-    })(links[i]);  // De link die bij de knop hoort
-
-    // Voeg de knop toe aan de body van de pagina
-    document.body.appendChild(x);
-  }
-}
-</script>
-
-
-
-
-
     </form>
 </body>
-</html>
-
-        </p>
-    </form>
 </article>
 {% endblock %}

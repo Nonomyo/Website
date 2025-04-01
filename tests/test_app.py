@@ -13,6 +13,7 @@ def client():
         # yield zorgt ervoor dat de client beschikbaar is voor de tests die deze fixture gebruiken.
         yield client
 
+
 # De tests van de homepage heb ik even uit gezet, omdat de homepage heel wat is veranderd en nog gaat veranderen.
 
 
@@ -43,7 +44,6 @@ def client():
 #     # Controleert het navigatieschema.
 #     assert b'href="/"' in response.data  # Home
 #     assert b'href="/ChimeraX"' in response.data
-#     assert b'href="/BLAST"' in response.data
 #     assert b'href="/Databases"' in response.data
 #     assert b'href="/Help"' in response.data
 #     assert b'href="/AboutUs"' in response.data
@@ -95,7 +95,6 @@ def test_chimera(client):
     # Controleert het navigatieschema.
     assert b'href="/"' in response.data  # Home
     assert b'href="/ChimeraX"' in response.data
-    assert b'href="/BLAST"' in response.data
     assert b'href="/Databases"' in response.data
     assert b'href="/Help"' in response.data
     assert b'href="/AboutUs"' in response.data
@@ -116,15 +115,6 @@ def test_chimera(client):
     assert b'<img src="../static/ucsf-chimera.png"' in response.data
 
 
-def test_blast(client):
-    response = client.get("/BLAST")
-    assert response.status_code == 200
-    # Controleert of de titel van de pagina klopt.
-    assert b"BLAST" in response.data
-
-    # Ik laat deze even voor hoe hij is, omdat we nog niet zeker weten of we blast wel gaan gebruiken.
-
-
 def test_databases(client):
     # Zorgt ervoor dat deze functie de Databases pagina controleert.
     response = client.get("/Databases")
@@ -140,7 +130,6 @@ def test_databases(client):
     # Controleert het navigatieschema.
     assert b'href="/"' in response.data  # Home
     assert b'href="/ChimeraX"' in response.data
-    assert b'href="/BLAST"' in response.data
     assert b'href="/Databases"' in response.data
     assert b'href="/Help"' in response.data
     assert b'href="/AboutUs"' in response.data
@@ -167,7 +156,6 @@ def test_help(client):
     # Controleert het navigatieschema.
     assert b'href="/"' in response.data  # Home
     assert b'href="/ChimeraX"' in response.data
-    assert b'href="/BLAST"' in response.data
     assert b'href="/Databases"' in response.data
     assert b'href="/Help"' in response.data
     assert b'href="/AboutUs"' in response.data
@@ -201,7 +189,6 @@ def test_about_us(client):
     # Controleert het navigatieschema.
     assert b'href="/"' in response.data  # Home
     assert b'href="/ChimeraX"' in response.data
-    assert b'href="/BLAST"' in response.data
     assert b'href="/Databases"' in response.data
     assert b'href="/Help"' in response.data
     assert b'href="/AboutUs"' in response.data

@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 
 # Dit is een lijst met titels voor alle pagina's op de website
-titels = ['Super Coole Website', 'UCSF ChimeraX', 'BLAST', 'Help', 'About Us', 'Output', 'Error', 'Databases']
+titels = ['Super Coole Website', 'UCSF ChimeraX', 'Databases', 'Help', 'About Us', 'Output', 'Error']
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -42,22 +42,13 @@ def chimera():
     """
     return render_template(template_name_or_list = 'CHIMERA.html', titel = titels[1])
 
-@app.route('/BLAST')
-def blast():
-    """
-    In deze functie staat de Blast pagina.
-    :return: BLAST.html met de titel 'BLAST'
-    """
-    return render_template(template_name_or_list = 'BLAST.html', titel = titels[2])
-
-
 @app.route('/Databases')
 def databases():
     """
     In deze functie staat de Databases pagina.
     :return: DATABASES.html met de titel 'Databases'
     """
-    return render_template(template_name_or_list = 'DATABASES.html', titel = titels[7])
+    return render_template(template_name_or_list = 'DATABASES.html', titel = titels[2])
 
 @app.route('/Help')
 def help():
@@ -74,14 +65,6 @@ def about_us():
     :return: ABOUT_US.html met de titel 'About Us'
     """
     return render_template(template_name_or_list = 'ABOUT_US.html', titel = titels[4])
-
-@app.route('/make-pink', methods=['POST'])
-def make_pink():
-    global is_pink
-    is_pink = True  # Zet de knop roze
-    return render_template('index.html', is_pink=is_pink)
-
-
 
 
 if __name__ == '__main__':

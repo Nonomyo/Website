@@ -9,7 +9,7 @@ movie record ; turn y 1 360 ; wait ; movie encode output video.mp4
 
 """
 
-    script_path = "../temp_chimerax.cxc"  # hij maakt hier het tekst bestand (.cxc) voor het tijdelijke script
+    script_path = "temp_chimerax.cxc"  # hij maakt hier het tekst bestand (.cxc) voor het tijdelijke script
     with open(script_path, "w") as script_file: # opent het tijdelijke script in write modes
         script_file.write(script_inhoud_tijdelijk) # zet de tijdelijke inhoud in het script
 
