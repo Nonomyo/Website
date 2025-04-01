@@ -205,6 +205,17 @@ def test_databases(client):
 
 
 def test_help(client):
+    """
+        In deze test functie wordt de Help van de website gecontroleerd.
+        Er wordt getest of de volgende onderdelen aanwezig zijn/werken:
+        - Header: titel van de pagina en afbeelding
+        - Navigatieschema
+        - Titel van de tekst en de eerste zin van de tekst (voor elk tekst deel)
+        - Afbeeldingen
+
+        :param client: test client om de functie te testen
+        :return: een pass als de functie doet wat hij moet doen en een error als dit niet zo is.
+    """
 
     # Zorgt ervoor dat deze functie de Help pagina controleert.
     response = client.get("/Help")
@@ -224,7 +235,19 @@ def test_help(client):
     assert b'href="/Help"' in response.data
     assert b'href="/AboutUs"' in response.data
 
-    # Deze test moeten we verder uitbereiden als we de Help pagina af hebben.
+    # Controleert of de eerste h2-tag met de titel aanwezig is.
+    assert b'Instructies nodig?</h2>' in response.data
+    # Controleert of het eerste deel van de eerste zin van de tekst klopt.
+    assert b"Onze website werkt heel simpel en effectief voor u." in response.data
+
+    # Controleert of de tweede h2-tag met de titel aanwezig is.
+    assert b'Wil je deze visualisatie downloaden?</h2>' in response.data
+    # Controleert of het eerste deel van de eerste zin van de tekst klopt.
+    assert b"Het is mogelijk om deze 3D visualisatie te downloaden" in response.data
+
+    # Controleert of de afbeeldingen aanwezig zijn
+    assert b'<img src="../static/drie_puntjes.png" height="254" width="414"/>' in response.data
+    assert b'<img src="../static/download help .png" height="328" width="416"/>' in response.data
 
 
 def test_about_us(client):
@@ -260,7 +283,7 @@ def test_about_us(client):
     # Controleert of de h2-tag met de titel aanwezig is.
     assert b'<h2>Wie zijn wij?</h2>' in response.data
     # Controleert of de eerste zin van de tekst klopt.
-    assert b"Welkom op onze website, (WEBSITE NAAM)." in response.data
+    assert b"Welkom op onze website" in response.data
 
 
 def test_error(client):
