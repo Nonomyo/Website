@@ -1,2 +1,0 @@
-movie record ; turn y 1 360 ; wait ; movie encode output video.mp4
-
