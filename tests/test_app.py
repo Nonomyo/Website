@@ -1,3 +1,13 @@
+"""
+Test website html
+versie 1
+Bio-informatica leerjaar 1
+Fleur Luten, Isa Bos, Naomy Schuppers, Yde de Vos
+
+In dit script worden alle functies in de app.py getest met unittests. In app.py staan de html pagina's van de website.
+Vooral de opmaak van de website wordt dus in dit script getest.
+"""
+
 import pytest
 from app import app
 

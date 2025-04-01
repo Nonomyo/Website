@@ -3,6 +3,7 @@ SUPER COOLE WEBSITE
 versie 1
 Bio-informatica leerjaar 1
 Fleur Luten, Isa Bos, Naomy Schuppers, Yde de Vos
+
 Deze code maakt gebruik van flask om een website met een eigen url te laten starten. De opdracht was om met HTML
 CCS en Flask een werkende website te maken die een visualisatie kan maken. Onze website werkt met meerdere scripts,
 HTML pagina's, CSS en code die samen werken om een goed werkende webiste te maken.

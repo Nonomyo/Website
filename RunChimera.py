@@ -1,14 +1,11 @@
 """"
 RunChimera
+versie 1
+Bio-informatica leerjaar 1
+Fleur Luten, Isa Bos, Naomy Schuppers, Yde de Vos
 
-authors: Ype de Vos, Isa Bos, Naomy Schuppers, Fleur Luten.
-versie 1.
-date: 27-3-2025
-
-This script contains a class that asks the user to submit a pdb id. The class
-will use this pdb id to search through the pdb database for a file about the
-corresponding protein. This file, along with a csc file containing instruction,
-will be given to chimerax to generate an animation of the 3d structure of the protein.
+In dit script staat een class die met het opgegeven eiwit ID en ChimeraX een video maakt van dit eiwit. Hier zijn
+verschillende opties bij mogelijk, die de gebruiker kan opgeven. De video komt op de website te staan.
 """
 
 import subprocess
