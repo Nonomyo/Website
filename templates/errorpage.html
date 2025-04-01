@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "website.html" %}
+
+{% block content %}
+<header><h1> oepsie, er ging iets mis.</h1></header>
+
+<article>
+    <h2>wat er misgegeaan kan zijn.</h2>
+    <br>
+    <h3>check uw id</h3>
+    <p>uw opgegeven protein id is: [insert id].<br>
+    check of dit id echt bestaat op de pdb website.<br>
+    Let op: letters in de id moeten hoofdletters zijn</p>
+    <br><br>
+    <h3>check waar u uw bestanden heeft.</h3>
+    de juiste bestanden structuur is: ...
+    <br><br>
+    <h3>Check uw verbinding</h3>
+    mischien is er een slechte verbinding met het internet.
+</article>
+
+{% endblock %}
+
+
