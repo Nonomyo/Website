@@ -126,6 +126,18 @@ def test_chimera(client):
 
 
 def test_databases(client):
+    """
+       In deze test functie wordt de Databases pagina van de website gecontroleerd.
+       Er wordt getest of de volgende onderdelen aanwezig zijn/werken:
+       - Header: titel van de pagina en afbeelding
+       - Navigatieschema
+       - Titel van de tekst en de eerste zin van de tekst
+       - Titel, link naar website en eerste zin van de tekst per database
+
+       :param client: test client om de functie te testen
+       :return: een pass als de functie doet wat hij moet doen en een error als dit niet zo is.
+    """
+
     # Zorgt ervoor dat deze functie de Databases pagina controleert.
     response = client.get("/Databases")
 
@@ -145,9 +157,44 @@ def test_databases(client):
     assert b'href="/AboutUs"' in response.data
 
     # Controleert of de eerste h2-tag met de titel aanwezig is.
-    assert b'Deze databases kan je gebruiken:</h2>' in response.data
+    assert b'Waarom Databases?</h2>' in response.data
+    # Controleert of het eerste deel van de eerste zin van de tekst klopt.
+    assert (b"ChimeraX maakt gebruik van verschillende databases" in response.data)
 
-    # Moeten we even afmaken als we info op de pagina hebben staan bij de databases.
+    # Controleert of de UniProt h2-tag met de titel aanwezig is.
+    assert b'UniProt:</h2>' in response.data
+    # Controleert of de link naar UniProt aanwezig is
+    assert b'<a href="https://www.uniprot.org/" target="_blank">UniProt</a>' in response.data
+    # Controleert of de eerste zin van de tekst klopt.
+    assert (b"is een uitgebreide database met eiwitsequenties en functionele informatie." in response.data)
+
+    # Controleert of de AlphaFold h2-tag met de titel aanwezig is.
+    assert b'AlphaFold:</h2>' in response.data
+    # Controleert of de link naar AlphaFold aanwezig is
+    assert b'<a href="https://alphafold.ebi.ac.uk/" target="_blank">AlphaFold</a>' in response.data
+    # Controleert of de eerste zin van de tekst klopt.
+    assert (b"biedt voorspelde eiwitstructuren op basis van deep learning." in response.data)
+
+    # Controleert of de EMDB h2-tag met de titel aanwezig is.
+    assert b'EMDB (Electron Microscopy Data Bank):</h2>' in response.data
+    # Controleert of de link naar EMBD aanwezig is
+    assert b'<a href="https://www.ebi.ac.uk/emdb/" target="_blank">EMDB</a>' in response.data
+    # Controleert of de eerste zin van de tekst klopt.
+    assert (b"bevat cryo-elektronmicroscopie (cryo-EM) kaarten van biomoleculaire structuren." in response.data)
+
+    # Controleert of de ModelArchive h2-tag met de titel aanwezig is.
+    assert b'ModelArchive:</h2>' in response.data
+    # Controleert of de link naar ModelArchive aanwezig is
+    assert b'<a href="https://modelarchive.org/" target="_blank">ModelArchive</a>' in response.data
+    # Controleert of de eerste zin van de tekst klopt.
+    assert (b"slaat theoretische en computationele modellen van eiwitten op." in response.data)
+
+    # Controleert of de PubChem h2-tag met de titel aanwezig is.
+    assert b'PubChem:</h2>' in response.data
+    # Controleert of de link naar PubChem aanwezig is
+    assert b'<a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank">PubChem</a>' in response.data
+    # Controleert of de eerste zin van de tekst klopt.
+    assert (b"is een database met chemische structuren en bioactieve moleculen." in response.data)
 
 
 def test_help(client):
