@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 
 # Dit is een lijst met titels voor alle pagina's op de website
-titels = ['BioVisualX', 'UCSF ChimeraX', 'Databases', 'Help', 'About Us', 'Output', 'Error']
+titels = [' BioVisualX', ' UCSF ChimeraX', ' Databases', ' Help', ' About Us', ' Output', 'Error']
 
 @app.route('/', methods=['GET', 'POST'])
 def home():

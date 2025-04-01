@@ -48,10 +48,10 @@ def client():
 #
 #     # Controleert of de titel van de pagina klopt.
 #     assert b"Super Coole Website" in response.data
-#     # Controleert of de header met de afbeelding aanwezig is.
-#     assert b'<img src="../static/logo-hanze-oranje-zwart-rgb.png"' in response.data
-#
-#     # Controleert het navigatieschema.
+#     # Controleert of de header met de afbeeldingen aanwezig zijn.
+#     assert b'<img src="../static/logo biovisualx.jpeg" height="100" width="120"/>' in response.data
+#     assert b'<img src="../static/logo biovisualx spiegel.png" height="100" width="120"/>' in response.data
+#      # Controleert het navigatieschema.
 #     assert b'href="/"' in response.data  # Home
 #     assert b'href="/ChimeraX"' in response.data
 #     assert b'href="/Databases"' in response.data
@@ -99,8 +99,9 @@ def test_chimera(client):
 
     # Controleert of de titel van de pagina klopt.
     assert b"UCSF ChimeraX" in response.data
-    # Controleert of de header met de afbeelding aanwezig is.
-    assert b'<img src="../static/logo-hanze-oranje-zwart-rgb.png"' in response.data
+    # Controleert of de header met de afbeeldingen aanwezig zijn.
+    assert b'<img src="../static/logo biovisualx.jpeg" height="100" width="120"/>' in response.data
+    assert b'<img src="../static/logo biovisualx spiegel.png" height="100" width="120"/>' in response.data
 
     # Controleert het navigatieschema.
     assert b'href="/"' in response.data  # Home
@@ -146,8 +147,9 @@ def test_databases(client):
 
     # Controleert of de titel van de pagina klopt.
     assert b"Databases" in response.data
-    # Controleert of de header met de afbeelding aanwezig is.
-    assert b'<img src="../static/logo-hanze-oranje-zwart-rgb.png"' in response.data
+    # Controleert of de header met de afbeeldingen aanwezig zijn.
+    assert b'<img src="../static/logo biovisualx.jpeg" height="100" width="120"/>' in response.data
+    assert b'<img src="../static/logo biovisualx spiegel.png" height="100" width="120"/>' in response.data
 
     # Controleert het navigatieschema.
     assert b'href="/"' in response.data  # Home
@@ -225,8 +227,9 @@ def test_help(client):
 
     # Controleert of de titel van de pagina klopt.
     assert b"Help" in response.data
-    # Controleert of de header met de afbeelding aanwezig is.
-    assert b'<img src="../static/logo-hanze-oranje-zwart-rgb.png"' in response.data
+    # Controleert of de header met de afbeeldingen aanwezig zijn.
+    assert b'<img src="../static/logo biovisualx.jpeg" height="100" width="120"/>' in response.data
+    assert b'<img src="../static/logo biovisualx spiegel.png" height="100" width="120"/>' in response.data
 
     # Controleert het navigatieschema.
     assert b'href="/"' in response.data  # Home
@@ -270,8 +273,9 @@ def test_about_us(client):
 
     # Controleert of de titel van de pagina klopt.
     assert b"About Us" in response.data
-    # Controleert of de header met de afbeelding aanwezig is.
-    assert b'<img src="../static/logo-hanze-oranje-zwart-rgb.png"' in response.data
+    # Controleert of de header met de afbeeldingen aanwezig zijn.
+    assert b'<img src="../static/logo biovisualx.jpeg" height="100" width="120"/>' in response.data
+    assert b'<img src="../static/logo biovisualx spiegel.png" height="100" width="120"/>' in response.data
 
     # Controleert het navigatieschema.
     assert b'href="/"' in response.data  # Home
