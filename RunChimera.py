@@ -28,6 +28,3 @@ class RunChimera:
             script_file.write(script_content)
 
         subprocess.run([self.chimera, '--script', script_path])
-
-
-
