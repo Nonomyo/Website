@@ -36,6 +36,7 @@ def home():
 
     return render_template("HOMEPAGE.html", titel=titels[0], error=error_message)
 
+
 @app.route('/ChimeraX')
 def chimera():
     """
