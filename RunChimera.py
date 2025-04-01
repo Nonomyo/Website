@@ -11,8 +11,6 @@ corresponding protein. This file, along with a csc file containing instruction,
 will be given to chimerax to generate an animation of the 3d structure of the protein.
 """
 import subprocess
-import os
-
 class RunChimera:
     def __init__(self):
         self.chimera = r"C:\Program Files\ChimeraX 1.9\bin\ChimeraX.exe"
@@ -41,12 +39,8 @@ class RunChimera:
         with open(script_path, "w") as script_file:
             script_file.write(script_content)
 
-
         # Start ChimeraX met het script
         subprocess.run([self.chimera, '--script', script_path])
-
-        if os.path.exists(script_path):
-            os.remove(script_path)
 
 
 
