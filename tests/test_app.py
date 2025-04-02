@@ -24,58 +24,61 @@ def client():
         yield client
 
 
-# De tests van de homepage heb ik even uit gezet, omdat de homepage heel wat is veranderd en nog gaat veranderen.
+def test_homepage(client):
+    """
+    In deze test functie wordt de homepage van de website gecontroleerd.
+    Er wordt getest of de volgende onderdelen aanwezig zijn/werken:
+    - Header: titel van de pagina en afbeelding
+    - Navigatieschema
+    - Titel van de tekst en de eerste zin van de tekst
+    - De voorbeeld linkjes
+    - Submit knop om een ID in te voeren
+    - Opties voor het ID
 
+    :param client: test client om de functie te testen
+    :return: een pass als de functie doet wat hij moet doen en een error als dit niet zo is.
+    """
 
-# def test_homepage(client):
-#     """
-#     In deze test functie wordt de homepage van de website gecontroleerd.
-#     Er wordt getest of de volgende onderdelen aanwezig zijn/werken:
-#     - Header: titel van de pagina en afbeelding
-#     - Navigatieschema
-#     - Submit knop om een Eiwit ID in te voeren
-#     - Titel van de tekst en de eerste zin van de tekst
-#
-#     :param client: test client om de functie te testen
-#     :return: een pass als de functie doet wat hij moet doen en een error als dit niet zo is.
-#     """
-#
-#     # Zorgt ervoor dat deze functie de root controleerd, voor ons de homepage.
-#     response = client.get("/")
-#
-#     # 200 is de HTTP-status code voor OK, als de pagina het doet is het dus 200.
-#     assert response.status_code == 200
-#
-#     # Controleert of de titel van de pagina klopt.
-#     assert b"Super Coole Website" in response.data
-#     # Controleert of de header met de afbeeldingen aanwezig zijn.
-#     assert b'<img src="../static/logo biovisualx.jpeg" height="100" width="120"/>' in response.data
-#     assert b'<img src="../static/logo biovisualx spiegel.png" height="100" width="120"/>' in response.data
-#      # Controleert het navigatieschema.
-#     assert b'href="/"' in response.data  # Home
-#     assert b'href="/ChimeraX"' in response.data
-#     assert b'href="/Databases"' in response.data
-#     assert b'href="/Help"' in response.data
-#     assert b'href="/AboutUs"' in response.data
-#
-#     # Controleert of er een submit knop is; het invoeren van een Eiwit ID.
-#     assert b"type=\"submit\"" in response.data
-#     # Controleert de zoek knop.
-#     assert b'input type="text" id="prot_id" name="prot_id"' in response.data
-#
-#     # Controleert of de h2-tag met de titel aanwezig is.
-#     assert b'<h2>WEBSITE NAAM?</h2>' in response.data
-#     # Controleert of de eerste zin van de tekst klopt.
-#     assert b"Welkom bij onze website voor het vertalen en informeren van eiwitten." in response.data
+    # Zorgt ervoor dat deze functie de root controleerd, voor ons de homepage.
+    response = client.get("/")
 
+    # 200 is de HTTP-status code voor OK, als de pagina het doet is het dus 200.
+    assert response.status_code == 200
 
-# def test_homepage_post_request(client):
-#     response = client.post("/", data={"prot_id": "test"})
-#     assert response.status_code == 200
-#     assert b"test" in response.data
-#
-#     # Deze test moet aangepast worden als we weten hoe de input en output er uit gaat zien.
-#     # Hier heb ik even de basis opgeschreven, zodat we het niet vergeten.
+    # Controleert of de titel van de pagina klopt.
+    assert b"BioVisualX" in response.data
+    # Controleert of de header met de afbeeldingen aanwezig zijn.
+    assert b'<img src="../static/logo biovisualx.jpeg" height="100" width="120"/>' in response.data
+    assert b'<img src="../static/logo biovisualx spiegel.png" height="100" width="120"/>' in response.data
+
+    # Controleert het navigatieschema.
+    assert b'href="/"' in response.data  # Home
+    assert b'href="/ChimeraX"' in response.data
+    assert b'href="/Databases"' in response.data
+    assert b'href="/Help"' in response.data
+    assert b'href="/AboutUs"' in response.data
+
+    # Controleert of de h1-tag met de titel aanwezig is.
+    assert b'<h1>Zoek een DNA of eiwitstructuur</h1>' in response.data
+    # Controleert of de eerste zin van de tekst klopt.
+    assert b"Vul hierboven een vier letterig ID" in response.data
+
+    # Controleert de voorbeeld ID's
+    assert b'href="https://www.rcsb.org/structure/1BOM"' in response.data
+    assert b'href="https://www.rcsb.org/structure/1JM7"' in response.data
+    assert b'href="https://www.rcsb.org/structure/1A0M"' in response.data
+    assert b'href="https://www.rcsb.org/structure/1UQB"' in response.data
+
+    # Controleert of er een submit knop is; het invoeren van een Eiwit ID.
+    assert b"type=\"submit\"" in response.data
+    # Controleert de zoek knop.
+    assert b'input type="text" id="prot_id" name="prot_id"' in response.data
+
+    # Controleert de opties.
+    assert b'<form action="/" method="post">' in response.data
+    assert b'<select id="color" name="color">' in response.data
+    assert b'<option value="none">Geen kleur</option>' in response.data
+    assert b'<input type="submit" value="Zoeken">' in response.data
 
 
 def test_chimera(client):
