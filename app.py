@@ -34,7 +34,9 @@ def home():
 #            abort(400)
 
         if len(prot_id) != 4:
-            abort(400)
+            #abort(400)
+            return render_template('errorpage.html', titel=titels[6], prot_id=prot_id)
+
 
 
 
@@ -43,18 +45,19 @@ def home():
         chimera_start.get_input(prot_id, color=color)
 
 
-        return render_template("output.html", prot_id=prot_id, titel=titels[5], video=True)
+        return render_template("output.html", prot_id=prot_id, titel=titels[5], video=True), prot_id
 
     return render_template("HOMEPAGE.html", titel=titels[0], error=error_message)
 
-@app.errorhandler(400)
-def page_not_found(error):
-    """
-    Function to catch and handle the 404 errors
-    :param error:
-    :return: rendered own defined 404.html
-    """
-    return render_template('errorpage.html'), 400
+
+#@app.errorhandler(400)
+#def page_not_found(error, prot_id):
+#    """
+#    Function to catch and handle the 404 errors
+#    :param error, prot_id:
+#    :return: rendered own defined 404.html
+#    """
+#    return render_template('errorpage.html', titel=titels[6], prot_id=home(prot_id)), 400
 
 @app.route('/ChimeraX')
 def chimera():
