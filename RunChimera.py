@@ -11,6 +11,9 @@ corresponding protein. This file, along with a csc file containing instruction,
 will be given to chimerax to generate an animation of the 3d structure of the protein.
 """
 import subprocess
+import os
+import time
+
 class RunChimera:
     def __init__(self):
         self.chimera = r"C:\Program Files\ChimeraX 1.9\bin\ChimeraX.exe"
@@ -24,26 +27,34 @@ class RunChimera:
         """
         script_content = f"open {pdb_id}\n"
 
-        # Voeg de kleurregel toe als de parameter niet None is
-        if color != 'none':  # Alleen als de gebruiker een kleur kiest
+        if color != 'none':
             script_content += f" {color}\n"
 
-
-        # Voeg de animatie en video-encoding regels toe
         script_content += """movie record ; turn y 1 360 ; wait ; movie encode output static/video.mp4 ; quit
         """
 
         script_path = "static/temp_chimera.cxc"
+        video_path = "static/video.mp4"
 
-        # Schrijf het script naar het bestand
+        if os.path.exists(video_path):
+            os.remove(video_path)
+            time.sleep(1)
+
+        # Schrijf het scriptbestand
         with open(script_path, "w") as script_file:
             script_file.write(script_content)
 
-        # Start ChimeraX met het script
-        subprocess.run([self.chimera, '--script', script_path])
+        # Start ChimeraX en wacht tot het klaar is
+        try:
+            subprocess.run([self.chimera, '--script', script_path], check=True)
+
+            # Wacht maximaal 10 seconden tot de video klaar is
+            timeout = 10
+            while not os.path.exists(video_path) and timeout > 0:
+                time.sleep(1)
+                timeout -= 1
 
 
-
-
-
-
+        finally:
+            if os.path.exists(script_path):
+                os.remove(script_path)

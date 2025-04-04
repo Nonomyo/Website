@@ -11,6 +11,7 @@ HTML pagina's, CSS en code die samen werken om een goed werkende webiste te make
 
 from flask import Flask, render_template, request, jsonify
 from RunChimera import RunChimera
+import time
 
 app = Flask(__name__)
 
@@ -24,7 +25,7 @@ def home():
 
     if request.method == 'POST':
         prot_id = request.form.get('prot_id', '')
-        color = request.form.get('color', 'none')  # Haal de kleurparameter op
+        color = request.form.get('color', 'none')
 
         if not prot_id:
             return render_template("errorpage.html", titel=titels[6], error="errormesage.html")
