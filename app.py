@@ -9,7 +9,7 @@ CCS en Flask een werkende website te maken die een visualisatie kan maken. Onze 
 HTML pagina's, CSS en code die samen werken om een goed werkende webiste te maken.
 """
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, abort
 from RunChimera import RunChimera
 import time
 
@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 
 # Dit is een lijst met titels voor alle pagina's op de website
-titels = ['BioVisualX', 'UCSF ChimeraX', 'Databases', 'Help', 'About Us', 'Output', 'Error']
+titels = [' BioVisualX', ' UCSF ChimeraX', ' Databases', ' Help', ' About Us', ' Output', 'Error']
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -27,16 +27,33 @@ def home():
         prot_id = request.form.get('prot_id', '')
         color = request.form.get('color', 'none')
 
-        if not prot_id:
-            return render_template("errorpage.html", titel=titels[6], error="errormesage.html")
+#        if not prot_id:
+#            return render_template("errorpage.html", titel=titels[6], error="errormesage.html")
+#        if not prot_id:
+#            abort(400)
+
+        if len(prot_id) != 4:
+            abort(400)
+
+
+
 
         chimera_start = RunChimera()
         chimera_start.get_input(prot_id, color=color)
+
 
         return render_template("output.html", prot_id=prot_id, titel=titels[5], video=True)
 
     return render_template("HOMEPAGE.html", titel=titels[0], error=error_message)
 
+@app.errorhandler(400)
+def page_not_found(error):
+    """
+    Function to catch and handle the 404 errors
+    :param error:
+    :return: rendered own defined 404.html
+    """
+    return render_template('errorpage.html'), 400
 
 @app.route('/ChimeraX')
 def chimera():
