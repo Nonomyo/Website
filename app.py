@@ -11,7 +11,8 @@ HTML pagina's, CSS en code die samen werken om een goed werkende webiste te make
 
 from flask import Flask, render_template, request, jsonify, abort
 from RunChimera import RunChimera
-import time
+import cProfile
+import pstats
 
 app = Flask(__name__)
 

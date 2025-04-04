@@ -1,3 +1,4 @@
-open 1uqb
+open 1bom
+ color pink; view
 movie record ; turn y 1 360 ; wait ; movie encode output static/video.mp4 ; quit
         
