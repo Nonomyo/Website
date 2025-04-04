@@ -48,7 +48,6 @@ class RunChimera:
         try:
             subprocess.run([self.chimera, '--script', script_path], check=True)
 
-            # Wacht maximaal 10 seconden tot de video klaar is
             timeout = 10
             while not os.path.exists(video_path) and timeout > 0:
                 time.sleep(1)
