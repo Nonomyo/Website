@@ -33,8 +33,8 @@ class RunChimera:
         script_content += """movie record ; turn y 1 360 ; wait ; movie encode output static/video.mp4 ; quit
         """
 
-        script_path = "../static/temp_chimera.cxc"
-        video_path = "../static/video.mp4"
+        script_path = "static/temp_chimera.cxc"
+        video_path = "static/video.mp4"
 
         if os.path.exists(video_path):
             os.remove(video_path)
