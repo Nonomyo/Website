@@ -11,8 +11,8 @@ Datum: 27-3-2025
 
 import os
 import pytest
-from tests.RunChimera import RunChimera
-from tests.app import app
+from RunChimera import RunChimera
+from app import app
 
 @pytest.fixture
 def client():
@@ -37,7 +37,7 @@ def test_video_generation(client):
     :return: None
     """
 
-    video_path = "static/video.mp4"
+    video_path = "../static/video.mp4"
     # als het path al bestaat, wordt deze verwijderd.
     if os.path.exists(video_path):
         os.remove(video_path)
@@ -46,7 +46,7 @@ def test_video_generation(client):
     # neemt een voorbeeld ID en kleur als input.
     chimera.get_input("1ABC", "pink")
     # test of het path al bestaat
-    assert os.path.exists("static/video.mp4"), "Video is niet gegenereerd."
+    assert os.path.exists("../static/video.mp4"), "Video is niet gegenereerd."
 
 
 def test_overwrite_video(client):
@@ -58,7 +58,7 @@ def test_overwrite_video(client):
     :param: client
     :return: None
     """
-    video_path = "static/video.mp4"
+    video_path = "../static/video.mp4"
 
     # maakt een test video.
     with open(video_path, "w") as file:
