@@ -16,7 +16,12 @@ import time
 
 class RunChimera:
     def __init__(self):
-        self.chimera = r"C:\Program Files\ChimeraX 1.9\bin\ChimeraX.exe"
+
+        # Ontvangt het path van app.py
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        # Voegt het path naar chimerax toe aan het vorige path
+        chimera_path = os.path.join(current_dir, 'tool/ucsf-chimerax_1.9ubuntu22.04_amd64/usr/bin/chimerax')
+        self.chimera = chimera_path
 
     def get_input(self, pdb_id, color=None):
         """
