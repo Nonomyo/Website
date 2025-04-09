@@ -1,18 +1,19 @@
 """"
 RunChimera
 
-authors: Ype de Vos, Isa Bos, Naomy Schuppers, Fleur Luten.
-versie 1.
-date: 27-3-2025
+Auteurs: Ype de Vos, Isa Bos, Naomy Schuppers, Fleur Luten.
+Versie: 1
+Datum: 09-04-2025
 
-This script contains a class that asks the user to submit a pdb id. The class
-will use this pdb id to search through the pdb database for a file about the
-corresponding protein. This file, along with a csc file containing instruction,
-will be given to chimerax to generate an animation of the 3d structure of the protein.
+In dit script staat een class die de gebruiker verschillende opties geeft voor het uitvoeren van de website
+met gebruik van de tool ChimeraX. Er worden verschillende argumenten gegeven voor het runnen van ChimeraX
+en het maken van een 360 graden video van het opgegeven ID met de gekozen eisen.
 """
+
 import subprocess
 import os
 import time
+
 
 class RunChimera:
     def __init__(self):
@@ -27,12 +28,15 @@ class RunChimera:
         """
         script_content = f"open {pdb_id}\n"
 
+        # De kleur die de animatie krijgt.
         if color != 'none':
             script_content += f" {color}\n"
 
+        # Dit is nodig voor het maken van de video
         script_content += """movie record ; turn y 1 360 ; wait ; movie encode output static/video.mp4 ; quit
         """
 
+        # Path voor het maken van de video
         script_path = "static/temp_chimera.cxc"
         video_path = "static/video.mp4"
 
@@ -40,11 +44,11 @@ class RunChimera:
             os.remove(video_path)
             time.sleep(1)
 
-        # Schrijf het scriptbestand
+        # Schrijf het scriptbestand voor het maken van de video
         with open(script_path, "w") as script_file:
             script_file.write(script_content)
 
-        # Start ChimeraX en wacht tot het klaar is
+        # Start ChimeraX en wacht de video is gemaakt
         try:
             subprocess.run([self.chimera, '--script', script_path], check=True)
 
@@ -52,7 +56,6 @@ class RunChimera:
             while not os.path.exists(video_path) and timeout > 0:
                 time.sleep(1)
                 timeout -= 1
-
 
         finally:
             if os.path.exists(script_path):

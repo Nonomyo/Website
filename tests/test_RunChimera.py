@@ -1,18 +1,19 @@
 """
 Tests voor RunChimera
 
-Deze tests controleren of het script een video genereert met een geldig PDB-ID
-en of een bestaande video correct wordt overschreven.
-
 Auteurs: Ype de Vos, Isa Bos, Naomy Schuppers, Fleur Luten.
 Versie: 1
-Datum: 27-3-2025
+Datum: 09-04-2025
+
+Deze tests controleren of het script een video genereert met een geldig PDB-ID
+en of een bestaande video correct wordt overschreven.
 """
 
 import os
 import pytest
 from RunChimera import RunChimera
 from app import app
+
 
 @pytest.fixture
 def client():
@@ -43,8 +44,10 @@ def test_video_generation(client):
         os.remove(video_path)
 
     chimera = RunChimera()
+
     # neemt een voorbeeld ID en kleur als input.
     chimera.get_input("1ABC", "pink")
+
     # test of het path al bestaat
     assert os.path.exists("../static/video.mp4"), "Video is niet gegenereerd."
 
